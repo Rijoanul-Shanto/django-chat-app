@@ -8,10 +8,12 @@ class CustomUserAdmin(UserAdmin):
     model = User
     list_display = ('email', 'name', 'date_joined', 'is_active', 'is_staff', 'avatar')
     list_filter = ('email', 'is_staff', 'is_active',)
+    # show after create
     fieldsets = (
         (None, {'fields': ('email', 'name', 'date_joined', 'password', 'avatar')}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
     )
+    # show when create
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
